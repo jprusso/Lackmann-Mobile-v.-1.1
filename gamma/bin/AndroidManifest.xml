@@ -1,0 +1,186 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.gamma.lackmann.mobile"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+	<uses-sdk
+		android:minSdkVersion="8"
+        android:targetSdkVersion="15" />
+    
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> 
+
+    <application
+        android:icon="@drawable/app_icon"
+        android:label="@string/app_name"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:theme="@android:style/Theme.NoTitleBar" >
+		
+        <activity
+            android:name=".Splash_Screen"
+            android:label="@string/app_name"
+            android:configChanges="keyboardHidden|orientation|screenSize"> >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+		
+        <activity
+            android:exported="false"
+            android:name=".Main_Menu"
+            android:label="@string/app_name" 
+            android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="com.gamma.lackmann.mobile.Main_Menu" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+		
+        <activity
+            android:exported="false"
+            android:name=".Promo"
+            android:label="@string/app_name"
+            android:configChanges="keyboardHidden|orientation|screenSize"> >
+            <intent-filter>
+                <action android:name="com.gamma.lackmann.mobile.Promo" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+		
+        <activity
+            android:exported="false"
+            android:name=".Contact_Info"
+            android:label="@string/app_name"
+            android:configChanges="keyboardHidden|orientation|screenSize"> >
+            <intent-filter>
+                <action android:name="com.gamma.lackmann.mobile.Contact_Info" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+		
+        <activity
+            android:exported="false"
+            android:name=".Hours_Info"
+            android:label="@string/app_name"
+            android:configChanges="keyboardHidden|orientation|screenSize"> >
+            <intent-filter>
+                <action android:name="com.gamma.lackmann.mobile.Hours_Info" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+		
+        <activity
+            android:exported="false"
+            android:name=".Meal_Plan_Info"
+            android:label="@string/app_name"
+            android:configChanges="keyboardHidden|orientation|screenSize"> >
+            <intent-filter>
+                <action android:name="com.gamma.lackmann.mobile.Meal_Plan_Info" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+		
+        <activity
+            android:exported="false"
+            android:name=".Calculator"
+            android:label="@string/app_name"
+            android:configChanges="keyboardHidden|orientation|screenSize"> >
+            <intent-filter>
+                <action android:name="com.gamma.lackmann.mobile.Calculator" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+		
+        <activity
+            android:exported="false"
+            android:name=".Edit_Screen"
+            android:label="@string/app_name"
+            android:configChanges="keyboardHidden|orientation|screenSize"> >
+            <intent-filter>
+                <action android:name="com.gamma.lackmann.mobile.Edit_Screen" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+		
+        <activity
+            android:exported="false"
+            android:name=".First_Time"
+            android:label="@string/app_name"
+            android:configChanges="keyboardHidden|orientation|screenSize"> >
+            <intent-filter>
+                <action android:name="com.gamma.lackmann.mobile.First_Time" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+		
+        <activity
+            android:exported="false"
+            android:name=".Confirm"
+            android:label="@string/app_name"
+            android:configChanges="keyboardHidden|orientation|screenSize"> >
+            <intent-filter>
+                <action android:name="com.gamma.lackmann.mobile.Confirm" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+		
+        <activity
+            android:exported="false"
+            android:name=".Cardinal_Menu"
+            android:label="@string/app_name"
+            android:configChanges="keyboardHidden|orientation|screenSize"> >
+            <intent-filter>
+                <action android:name="com.gamma.lackmann.mobile.Cardinal_Menu" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+		
+        <activity
+            android:exported="false"
+            android:name=".Cyber_Menu"
+            android:label="@string/app_name"
+            android:configChanges="keyboardHidden|orientation|screenSize"> >
+            <intent-filter>
+                <action android:name="com.gamma.lackmann.mobile.Cyber_Menu" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+		
+        <activity
+            android:exported="false"
+            android:name=".Location_Select"
+            android:label="@string/app_name"
+            android:configChanges="keyboardHidden|orientation|screenSize"> >
+            <intent-filter>
+                <action android:name="com.gamma.lackmann.mobile.Location_Select" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+		
+        <activity
+            android:exported="false"
+            android:name=".Murphy_Menu"
+            android:label="@string/app_name"
+            android:configChanges="keyboardHidden|orientation|screenSize"> >
+            <intent-filter>
+                <action android:name="com.gamma.lackmann.mobile.Murphy_Menu" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+		
+        <activity
+            android:exported="false"
+            android:name=".Ward_Haffey_Menu"
+            android:label="@string/app_name"
+            android:configChanges="keyboardHidden|orientation|screenSize"> >
+            <intent-filter>
+                <action android:name="com.gamma.lackmann.mobile.Ward_Haffey_Menu" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+		
+    </application>
+
+</manifest>
