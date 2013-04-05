@@ -1,0 +1,122 @@
+<ScrollView 
+    	xmlns:android="http://schemas.android.com/apk/res/android"
+  		android:layout_width="fill_parent"
+  		android:layout_height="fill_parent" >
+
+<RelativeLayout 
+    	xmlns:android="http://schemas.android.com/apk/res/android"
+    	xmlns:tools="http://schemas.android.com/tools"
+    	android:layout_width="fill_parent"
+    	android:layout_height="625dp"
+    	tools:context=".Confirm"
+    	android:background="#FFFFFF" >
+
+    
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="100dip"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/lackmann_splash1"
+        android:scaleType="centerInside" />
+    
+    <TextView
+        android:id="@+id/title_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/confirmTitle"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:textColor="#000000"
+        android:layout_below="@+id/logo" />
+
+    <TextView
+        android:id="@+id/meal_swipes_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_label"
+        android:text="@string/ftMealSwipes"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/tvMealSwipes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/meal_swipes_label"
+        android:layout_marginTop="15dp"
+        android:text=""
+        android:layout_centerHorizontal="true"
+        android:textSize="25sp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/flex_dollars_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvMealSwipes"
+        android:text="@string/ftDiningDollars"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/guest_passes_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvDiningDollars"
+        android:text="@string/ftGuestPasses"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/tvGuestPasses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/guest_passes_label"
+        android:text=""
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp" 
+        android:textSize="25sp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/tvDiningDollars"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/flex_dollars_label" 
+        android:textSize="25sp"
+        android:textColor="#000000" />
+
+    <Button
+        android:id="@+id/doit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/title_label"
+        android:layout_alignRight="@+id/title_label"
+        android:layout_below="@+id/tvGuestPasses"
+        android:layout_marginTop="30dp"
+        android:text="Yes" />
+
+    <Button
+        android:id="@+id/nobut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/doit"
+        android:layout_alignRight="@+id/doit"
+        android:layout_below="@+id/doit"
+        android:layout_marginTop="10dp"
+        android:text="No" />
+
+</RelativeLayout>
+
+</ScrollView>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView 
+    	xmlns:android="http://schemas.android.com/apk/res/android"
+  		android:layout_width="fill_parent"
+  		android:layout_height="fill_parent" >
+
+<RelativeLayout 
+    	xmlns:android="http://schemas.android.com/apk/res/android"
+   	 	android:layout_width="fill_parent"
+    	android:layout_height="650dp"
+    	android:orientation="vertical" 
+    	android:background="#FFFFFF" >
+
+	<ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:src="@drawable/lackmann_splash1"
+        android:layout_centerHorizontal="true" />
+    
+    <Button
+        android:id="@+id/wardhaffey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/logo"
+        android:layout_alignRight="@+id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/logo"
+        android:layout_marginTop="40dp"
+        android:clickable="true"
+        android:onClick="goWardHaffey"
+        android:text="Ward/Haffey Hall" />
+
+    <Button
+        android:id="@+id/murphy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/wardhaffey"
+        android:layout_alignRight="@+id/wardhaffey"
+        android:layout_below="@+id/wardhaffey"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:text="Murphy Hall" />
+
+    <Button
+        android:id="@+id/cyber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/murphy"
+        android:layout_alignRight="@+id/murphy"
+        android:layout_below="@+id/murphy"
+        android:layout_marginTop="21dp"
+        android:clickable="true"
+        android:text="Cyber Cafe" />
+
+    <Button
+        android:id="@+id/cardinal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/cyber"
+        android:layout_alignRight="@+id/cyber"
+        android:layout_below="@+id/cyber"
+        android:layout_marginTop="15dp"
+        android:clickable="true"
+        android:text="Cardinal Cafe" />
+
+    <Button
+        android:id="@+id/fishbowl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cardinal"
+        android:layout_alignLeft="@+id/cardinal"
+        android:layout_alignRight="@+id/cardinal"
+        android:layout_marginTop="15dp"
+        android:clickable="true"
+        android:text="Fish Bowl" />
+
+</RelativeLayout> 
+
+</ScrollView>

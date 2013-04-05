@@ -1,0 +1,106 @@
+<ScrollView 
+    	xmlns:android="http://schemas.android.com/apk/res/android"
+  		android:layout_width="fill_parent"
+  		android:layout_height="fill_parent" >
+
+<RelativeLayout
+    	xmlns:android="http://schemas.android.com/apk/res/android"
+    	xmlns:tools="http://schemas.android.com/tools"
+    	android:layout_width="fill_parent"
+    	android:layout_height="625dp"
+    	android:background="#FFFFFF"
+    	tools:context=".Confirm" >
+
+    <TextView
+        android:id="@+id/enter_info_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="@string/ftTitle"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/meal_swipes_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/enter_info_label"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="19dp"
+        android:text="@string/ftMealSwipes"
+        android:textAppearance="?android:attr/textAppearanceMedium" 
+        android:textColor="#000000" />
+
+    <EditText
+        android:id="@+id/etMealSwipes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/meal_swipes_label"
+        android:layout_below="@+id/meal_swipes_label"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textColorHint="#000000" >
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/flex_dollars_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/etMealSwipes"
+        android:layout_below="@+id/etMealSwipes"
+        android:layout_marginTop="30dp"
+        android:text="@string/ftDiningDollars"
+        android:textAppearance="?android:attr/textAppearanceMedium" 
+        android:textColor="#000000" />
+
+    <EditText
+        android:id="@+id/etDiningDollars"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/flex_dollars_label"
+        android:layout_below="@+id/flex_dollars_label"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textColorHint="#000000" />
+
+    <TextView
+        android:id="@+id/guest_passes_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/etDiningDollars"
+        android:layout_below="@+id/etDiningDollars"
+        android:layout_marginTop="30dp"
+        android:text="@string/ftGuestPasses"
+        android:textAppearance="?android:attr/textAppearanceMedium" 
+        android:textColor="#000000"/>
+
+    <EditText
+        android:id="@+id/etGuestPasses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/guest_passes_label"
+        android:layout_below="@+id/guest_passes_label"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textColorHint="#000000" />
+
+    <Button
+        android:id="@+id/ftSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/enter_info_label"
+        android:layout_alignRight="@+id/enter_info_label"
+        android:layout_below="@+id/etGuestPasses"
+        android:layout_marginTop="51dp"
+        android:text="@string/ftSubmit" />
+
+</RelativeLayout>
+
+</ScrollView>

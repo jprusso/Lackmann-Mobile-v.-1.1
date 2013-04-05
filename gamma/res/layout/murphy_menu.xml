@@ -1,0 +1,197 @@
+<RelativeLayout 
+    	xmlns:android="http://schemas.android.com/apk/res/android"
+    	xmlns:tools="http://schemas.android.com/tools"
+    	android:layout_width="match_parent"
+    	android:layout_height="match_parent" 
+    	android:background="#FFFFFF" >
+    
+<ScrollView
+   		android:layout_width="fill_parent"
+   		android:layout_height="fill_parent">
+
+<LinearLayout
+     	android:layout_width="fill_parent"
+     	android:layout_height="wrap_content"
+     	android:orientation="vertical" >
+	
+	<TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Murphy"
+        android:textSize="40dp"
+        tools:context=".MainActivity"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#000000" />
+     
+    <TextView
+        android:id="@+id/monday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mon"
+        tools:context=".MainActivity"
+        android:layout_marginTop="50dp"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/dinner1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold"
+        android:text="Dinner"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/mondinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mondin"
+        tools:context=".MainActivity"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#000000" />
+     
+    <TextView
+        android:id="@+id/tuesday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tues"
+        tools:context=".MainActivity" 
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:id="@+id/dinner2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold"
+        android:text="Dinner"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/tuesdinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tuedin"
+        tools:context=".MainActivity" 
+        android:layout_marginTop="10dp"
+        android:textSize="15sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#000000"/>
+	
+	<TextView
+        android:id="@+id/wednesday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wed"
+        tools:context=".MainActivity"
+		android:layout_marginTop="30dp"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:id="@+id/dinner3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+		android:layout_gravity="center_horizontal"
+		android:textStyle="bold"
+        android:text="Dinner"
+        android:textColor="#000000"  />
+
+    <TextView
+        android:id="@+id/wedsdinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/weddin"
+        tools:context=".MainActivity"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#000000" />
+     
+    <TextView
+        android:id="@+id/thursday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/thur"
+        tools:context=".MainActivity"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/dinner4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold"
+        android:text="Dinner"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/thursdinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/thudin"
+        tools:context=".MainActivity"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#000000" />
+   
+    <TextView
+        android:id="@+id/friday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fri"
+        tools:context=".MainActivity"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/dinner5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold"
+        android:text="Dinner"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/fridinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fridin"
+        tools:context=".MainActivity"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#000000" />
+     
+</LinearLayout>
+
+</ScrollView>
+
+</RelativeLayout>
