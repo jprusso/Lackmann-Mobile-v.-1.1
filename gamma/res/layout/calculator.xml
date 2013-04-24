@@ -92,6 +92,7 @@
         android:layout_alignRight="@+id/editText1"
         android:layout_below="@+id/guest_passes"
         android:layout_marginBottom="8dp"
+        android:textSize="15dp"
         android:text="Submit" />
 
     <Button
@@ -102,6 +103,7 @@
         android:layout_alignRight="@+id/submit"
         android:layout_below="@+id/submit"
         android:layout_marginBottom="8dp"
+        android:textSize="15dp"
         android:text="Edit" />
 
     <Button
@@ -111,6 +113,7 @@
         android:layout_alignLeft="@+id/edit"
         android:layout_alignRight="@+id/edit"
         android:layout_below="@+id/edit"
+        android:textSize="15dp"
         android:text="Cancel" />
 
 </RelativeLayout>

@@ -13,7 +13,6 @@ import java.io.File;
 import java.io.IOException;
 import jxl.Sheet;
 import jxl.Workbook;
-import jxl.read.biff.BiffException;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.Html;
@@ -42,6 +41,8 @@ public class Cardinal_Menu extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cardinal_menu);
         
+        AlertDialog.Builder error_box = new AlertDialog.Builder(ctx);
+        
         setupVariables();
         
         try 
@@ -54,9 +55,8 @@ public class Cardinal_Menu extends Activity
         	}
         	else
         	{
-        		AlertDialog.Builder error_box = new AlertDialog.Builder(ctx);
         		error_box.setTitle("Menu Retrieval Error");
-        		error_box.setIcon(R.drawable.lackmann_twitterpic);
+        		error_box.setIcon(R.drawable.app_icon);
         		error_box.setNeutralButton("OK!", null);
         		error_box.setMessage("Menus are unavailable at this time.");
         		error_box.show();
@@ -64,7 +64,11 @@ public class Cardinal_Menu extends Activity
 		} 
         catch (IOException e) 
         {
-			e.printStackTrace();
+    		error_box.setTitle("Menu Retrieval Error");
+    		error_box.setIcon(R.drawable.app_icon);
+    		error_box.setNeutralButton("OK!", null);
+    		error_box.setMessage("Menus are unavailable at this time.");
+    		error_box.show();
 		}      
     }
     
@@ -77,7 +81,7 @@ public class Cardinal_Menu extends Activity
     	try 
     	{
 			w = Workbook.getWorkbook(menu);
-			final Sheet sheet = w.getSheet(4);
+			final Sheet sheet = w.getSheet(3);
 			
 			date = sheet.getCell(1,3).getContents() + "\t" + sheet.getCell(2,3).getContents();
 			monday.setText(date);
@@ -87,6 +91,7 @@ public class Cardinal_Menu extends Activity
 			meal_name[0] = ss + " " + qq + " " + tt;
 			crdmon.setText(Html.fromHtml("<font color='blue'><u>" 
 						+ ss + "<br>" + qq + "<br>" + tt + "</u></font>"));
+			
 			crdmon.setOnClickListener(new View.OnClickListener() 
 			{
 				public void onClick(View v) 
@@ -103,6 +108,7 @@ public class Cardinal_Menu extends Activity
 			meal_name[1] = ss + " " + qq + " " + tt;
 			crdtues.setText(Html.fromHtml("<font color='blue'><u>" 
 						+ ss + "<br>" + qq + "<br>" + tt + "</u></font>"));
+			
 			crdtues.setOnClickListener(new View.OnClickListener() 
 			{
 				public void onClick(View v) 
@@ -119,6 +125,7 @@ public class Cardinal_Menu extends Activity
 			meal_name[2] = ss + " " + qq + " " + tt;
 			crdwed.setText(Html.fromHtml("<font color='blue'><u>" 
 						+ ss + "<br>" + qq + "<br>" + tt + "</u></font>"));
+			
 			crdwed.setOnClickListener(new View.OnClickListener() 
 			{
 				public void onClick(View v) 
@@ -135,6 +142,7 @@ public class Cardinal_Menu extends Activity
 			meal_name[3] = ss + " " + qq + " " + tt;
 			crdthurs.setText(Html.fromHtml("<font color='blue'><u>" 
 						+ ss + "<br>" + qq + "<br>" + tt + "</u></font>"));
+			
 			crdthurs.setOnClickListener(new View.OnClickListener() 
 			{
 				public void onClick(View v) 
@@ -151,6 +159,7 @@ public class Cardinal_Menu extends Activity
 			meal_name[4] = ss + " " + qq + " " + tt;
 			crdfri.setText(Html.fromHtml("<font color='blue'><u>" 
 						+ ss + "<br>" + qq + "<br>" + tt + "</u></font>"));
+			
 			crdfri.setOnClickListener(new View.OnClickListener() 
 			{
 				public void onClick(View v) 
@@ -162,9 +171,14 @@ public class Cardinal_Menu extends Activity
 			w.close();
 						
 		} 
-    	catch (BiffException e) 
-    	{		
-			e.printStackTrace();
+    	catch (Exception e) 
+    	{	
+    		final AlertDialog.Builder error_box = new AlertDialog.Builder(ctx);
+			error_box.setTitle("Menu Retrieval Error");
+			error_box.setIcon(R.drawable.app_icon);
+			error_box.setNeutralButton("OK!", null);
+			error_box.setMessage("Menus are unavailable at this time.");
+			error_box.show();
 		}   	
     }
     //	END Method ID# 3.3
@@ -192,7 +206,7 @@ public class Cardinal_Menu extends Activity
 			
 			AlertDialog.Builder nutrition_box = new AlertDialog.Builder(ctx);
 			nutrition_box.setTitle(meal_name);
-			nutrition_box.setIcon(R.drawable.lackmann_twitterpic);
+			nutrition_box.setIcon(R.drawable.app_icon);
 			nutrition_box.setNeutralButton("OK!", null);
 			
 			if(ref_num.length() == 0)
@@ -244,13 +258,14 @@ public class Cardinal_Menu extends Activity
 				nutrition_box.show();
 			}
 		}
-		catch (BiffException e) 
-		{
-			e.printStackTrace();
-		} 
-		catch (IOException e) 
-		{
-			e.printStackTrace();
+	 	catch (Exception e) 
+    	{		
+	 		final AlertDialog.Builder error_box = new AlertDialog.Builder(ctx);
+			error_box.setTitle("Menu Retrieval Error");
+			error_box.setIcon(R.drawable.app_icon);
+			error_box.setNeutralButton("OK!", null);
+			error_box.setMessage("Menus are unavailable at this time.");
+			error_box.show();
 		}   	
     }
     //	END Method ID# 4.0

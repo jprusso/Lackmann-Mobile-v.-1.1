@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="100dip"
         android:layout_alignParentTop="true"
-        android:background="@drawable/lackmann_splash1"
+        android:background="@drawable/lackmann_logo"
         android:scaleType="centerInside" />
     
     <TextView
@@ -105,6 +105,7 @@
         android:layout_alignRight="@+id/title_label"
         android:layout_below="@+id/tvGuestPasses"
         android:layout_marginTop="30dp"
+        android:textSize="15dp"
         android:text="Yes" />
 
     <Button
@@ -115,6 +116,7 @@
         android:layout_alignRight="@+id/doit"
         android:layout_below="@+id/doit"
         android:layout_marginTop="10dp"
+        android:textSize="15dp"
         android:text="No" />
 
 </RelativeLayout>

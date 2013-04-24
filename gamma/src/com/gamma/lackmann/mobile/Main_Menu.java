@@ -45,13 +45,16 @@ public class Main_Menu extends Activity
 	
 	final String user_name = "@Lackmann_Fisher";
 	
-	String s;
+	String tweet, direction;
 	
 	public void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
 	    setContentView(R.layout.main_menu);
+	    
 	    setupVariables();
+	    
+		final AlertDialog.Builder error_box = new AlertDialog.Builder(ctx);
 	   
 	    menus_button.setOnClickListener(new View.OnClickListener() 
 		{
@@ -65,7 +68,11 @@ public class Main_Menu extends Activity
 				}
 				catch(ClassNotFoundException e)
 				{
-					e.printStackTrace();
+					error_box.setTitle("Application Error");
+					error_box.setIcon(R.drawable.app_icon);
+					error_box.setNeutralButton("OK!", null);
+					error_box.setMessage("Could not direct to desired page.\nPlease try again!");
+					error_box.show();
 				} 
 			}
 		});
@@ -76,13 +83,19 @@ public class Main_Menu extends Activity
 			{
 				try
 				{
-					Class ourClass = Class.forName("com.gamma.lackmann.mobile.Hours_Info");
+					direction = "hours";
+					Class ourClass = Class.forName("com.gamma.lackmann.mobile.Browser");
 					Intent ourIntent = new Intent(Main_Menu.this, ourClass);
+					ourIntent.putExtra("direction", direction);
 					startActivity(ourIntent);
 				}
 				catch(ClassNotFoundException e)
 				{
-					e.printStackTrace();
+					error_box.setTitle("Application Error");
+					error_box.setIcon(R.drawable.app_icon);
+					error_box.setNeutralButton("OK!", null);
+					error_box.setMessage("Could not direct to desired page.\nPlease try again!");
+					error_box.show();
 				} 
 			}
 		});
@@ -99,7 +112,11 @@ public class Main_Menu extends Activity
 				}
 				catch(ClassNotFoundException e)
 				{
-					e.printStackTrace();
+					error_box.setTitle("Application Error");
+					error_box.setIcon(R.drawable.app_icon);
+					error_box.setNeutralButton("OK!", null);
+					error_box.setMessage("Could not direct to desired page.\nPlease try again!");
+					error_box.show();
 				} 
 			}
 		});
@@ -110,13 +127,19 @@ public class Main_Menu extends Activity
 			{
 				try
 				{
-					Class ourClass = Class.forName("com.gamma.lackmann.mobile.Contact_Info");
+					direction = "contact";
+					Class ourClass = Class.forName("com.gamma.lackmann.mobile.Browser");
 					Intent ourIntent = new Intent(Main_Menu.this, ourClass);
+					ourIntent.putExtra("direction", direction);
 					startActivity(ourIntent);
 				}
 				catch(ClassNotFoundException e)
 				{
-					e.printStackTrace();
+					error_box.setTitle("Application Error");
+					error_box.setIcon(R.drawable.app_icon);
+					error_box.setNeutralButton("OK!", null);
+					error_box.setMessage("Could not direct to desired page.\nPlease try again!");
+					error_box.show();
 				} 
 			}
 		});
@@ -125,9 +148,22 @@ public class Main_Menu extends Activity
 	    {
 			public void onClick(View v) 
 			{
-				Uri uriUrl = Uri.parse("http://www.sjfc.edu/student-life/dining/bag-lunch.dot");
-				Intent launch = new Intent(Intent.ACTION_VIEW, uriUrl);
-				startActivity(launch);		
+				try
+				{
+					direction = "baglunch";
+					Class ourClass = Class.forName("com.gamma.lackmann.mobile.Browser");
+					Intent ourIntent = new Intent(Main_Menu.this, ourClass);
+					ourIntent.putExtra("direction", direction);
+					startActivity(ourIntent);
+				}
+				catch(ClassNotFoundException e)
+				{
+					error_box.setTitle("Application Error");
+					error_box.setIcon(R.drawable.app_icon);
+					error_box.setNeutralButton("OK!", null);
+					error_box.setMessage("Could not direct to desired page.\nPlease try again!");
+					error_box.show();
+				}		
 			}
 		});
 	        
@@ -145,7 +181,11 @@ public class Main_Menu extends Activity
 					}
 					catch(ClassNotFoundException e)
 					{
-						e.printStackTrace();
+						error_box.setTitle("Application Error");
+						error_box.setIcon(R.drawable.app_icon);
+						error_box.setNeutralButton("OK!", null);
+						error_box.setMessage("Could not direct to desired page.\nPlease try again!");
+						error_box.show();
 					}
 				}
 				else
@@ -158,7 +198,11 @@ public class Main_Menu extends Activity
 					}
 					catch(ClassNotFoundException e)
 					{
-						e.printStackTrace();
+						error_box.setTitle("Application Error");
+						error_box.setIcon(R.drawable.app_icon);
+						error_box.setNeutralButton("OK!", null);
+						error_box.setMessage("Could not direct to desired page.\nPlease try again!");
+						error_box.show();
 					}			
 				}
 			}
@@ -179,7 +223,7 @@ public class Main_Menu extends Activity
 			{
 				Uri uriUrl = Uri.parse("https://www.facebook.com/fisherdining");
 				Intent launch = new Intent(Intent.ACTION_VIEW, uriUrl);
-				startActivity(launch);		
+				startActivity(launch);
 			}
 		});
 	    //END METHOD ID# 2.0
@@ -197,7 +241,11 @@ public class Main_Menu extends Activity
 				}
 				catch(ClassNotFoundException e)
 				{
-					e.printStackTrace();
+					error_box.setTitle("Application Error");
+					error_box.setIcon(R.drawable.app_icon);
+					error_box.setNeutralButton("OK!", null);
+					error_box.setMessage("Could not direct to desired page.\nPlease try again!");
+					error_box.show();
 				} 
 			}
 		});
@@ -207,7 +255,7 @@ public class Main_Menu extends Activity
 	//BEGIN METHOD ID# 2.2
 	private class twitterfeed extends AsyncTask<String, Void, String>
     {
-    	String createdAt,t;
+    	String createdAt;
 			
 		@Override
 		protected String doInBackground(String... arg0) 
@@ -237,17 +285,17 @@ public class Main_Menu extends Activity
 		         
 		         for (twitter4j.Status status : statuses) 
 		         {
-		        	 s = status.getText();
+		        	 tweet = status.getText();
 		        	 createdAt = converter.toTimeSpanString(status.getCreatedAt());		
 		             break;
 		         } 
 		      } 
 		      catch (TwitterException te) 
 		      {
-		    	  s = "Failed to get timeline: " + te.getMessage();
+		    	  tweet = "Failed to get timeline: " + te.getMessage();
 		      }
 		          
-		      return s;
+		      return tweet;
 		}
 			
     	protected void onPostExecute(String result)
@@ -256,7 +304,7 @@ public class Main_Menu extends Activity
 			twitter1.setTitle(user_name);
 			twitter1.setIcon(R.drawable.lackmann_twitterpic);
 				
-			twitter1.setMessage(s + "\n" + createdAt);
+			twitter1.setMessage(tweet + "\n" + createdAt);
 			 
 			twitter1.setPositiveButton("Tweet!", new DialogInterface.OnClickListener() {
 					

@@ -13,7 +13,6 @@ import java.io.File;
 import java.io.IOException;
 import jxl.Sheet;
 import jxl.Workbook;
-import jxl.read.biff.BiffException;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.Html;
@@ -36,13 +35,15 @@ public class Murphy_Menu extends Activity
 	final File nutrition = new File(path + "/nutrition.xls");
 	
 	final String meal_name[] = new String[5];
-
+	
     public void onCreate(Bundle savedInstanceState) 
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.murphy_menu);
         
         setupVariables();
+        
+        final AlertDialog.Builder error_box = new AlertDialog.Builder(ctx);
         
         try 
         {
@@ -54,9 +55,8 @@ public class Murphy_Menu extends Activity
         	}
         	else
         	{
-        		AlertDialog.Builder error_box = new AlertDialog.Builder(ctx);
         		error_box.setTitle("Menu Retrieval Error");
-        		error_box.setIcon(R.drawable.lackmann_twitterpic);
+        		error_box.setIcon(R.drawable.app_icon);
         		error_box.setNeutralButton("OK!", null);
         		error_box.setMessage("Menus are unavailable at this time.");
         		error_box.show();
@@ -64,7 +64,11 @@ public class Murphy_Menu extends Activity
 		} 
         catch (IOException e) 
         {
-			e.printStackTrace();
+			error_box.setTitle("Menu Retrieval Error");
+			error_box.setIcon(R.drawable.app_icon);
+			error_box.setNeutralButton("OK!", null);
+			error_box.setMessage("Menus are unavailable at this time.");
+			error_box.show();
 		}      
     }
     
@@ -87,6 +91,7 @@ public class Murphy_Menu extends Activity
 			meal_name[0] = ss + " " + qq + " " + tt;
 			mrpmon.setText(Html.fromHtml("<font color='blue'><u>" 
 						+ ss + "<br>" + qq + "<br>" + tt + "</u></font>"));
+			
 			mrpmon.setOnClickListener(new View.OnClickListener() 
 			{
 				public void onClick(View v) 
@@ -103,6 +108,7 @@ public class Murphy_Menu extends Activity
 			meal_name[1] = ss + " " + qq + " " + tt;
 			mrptues.setText(Html.fromHtml("<font color='blue'><u>" 
 						+ ss + "<br>" + qq + "<br>" + tt + "</u></font>"));
+			
 			mrptues.setOnClickListener(new View.OnClickListener() 
 			{
 				public void onClick(View v) 
@@ -119,6 +125,7 @@ public class Murphy_Menu extends Activity
 			meal_name[2] = ss + " " + qq + " " + tt;
 			mrpwed.setText(Html.fromHtml("<font color='blue'><u>" 
 						+ ss + "<br>" + qq + "<br>" + tt + "</u></font>"));
+			
 			mrpwed.setOnClickListener(new View.OnClickListener() 
 			{
 				public void onClick(View v) 
@@ -135,6 +142,7 @@ public class Murphy_Menu extends Activity
 			meal_name[3] = ss + " " + qq + " " + tt;
 			mrpthurs.setText(Html.fromHtml("<font color='blue'><u>" 
 						+ ss + "<br>" + qq + "<br>" + tt + "</u></font>"));
+			
 			mrpthurs.setOnClickListener(new View.OnClickListener() 
 			{
 				public void onClick(View v) 
@@ -151,6 +159,7 @@ public class Murphy_Menu extends Activity
 			meal_name[4] = ss + " " + qq + " " + tt;
 			mrpfri.setText(Html.fromHtml("<font color='blue'><u>" 
 						+ ss + "<br>" + qq + "<br>" + tt + "</u></font>"));
+			
 			mrpfri.setOnClickListener(new View.OnClickListener() 
 			{
 				public void onClick(View v) 
@@ -161,10 +170,14 @@ public class Murphy_Menu extends Activity
 			
 			w.close();
 		} 
-    	catch (BiffException e) 
-    	{
-			
-			e.printStackTrace();
+    	catch (Exception e) 
+    	{		
+    		final AlertDialog.Builder error_box = new AlertDialog.Builder(ctx);
+			error_box.setTitle("Menu Retrieval Error");
+			error_box.setIcon(R.drawable.app_icon);
+			error_box.setNeutralButton("OK!", null);
+			error_box.setMessage("Menus are unavailable at this time.");
+			error_box.show();
 		}   	
     }
     //	END Method ID# 3.3
@@ -192,7 +205,7 @@ public class Murphy_Menu extends Activity
 			
 			AlertDialog.Builder nutrition_box = new AlertDialog.Builder(ctx);
 			nutrition_box.setTitle(meal_name);
-			nutrition_box.setIcon(R.drawable.lackmann_twitterpic);
+			nutrition_box.setIcon(R.drawable.app_icon);
 			nutrition_box.setNeutralButton("OK!", null);
 			
 			if(ref_num.length() == 0)
@@ -244,14 +257,15 @@ public class Murphy_Menu extends Activity
 				nutrition_box.show();
 			}
 		}
-		catch (BiffException e) 
+		catch (Exception e) 
 		{
-			e.printStackTrace();
-		} 
-		catch (IOException e) 
-		{
-			e.printStackTrace();
-		}   	
+			final AlertDialog.Builder error_box = new AlertDialog.Builder(ctx);
+			error_box.setTitle("Application Error");
+			error_box.setIcon(R.drawable.app_icon);
+			error_box.setNeutralButton("OK!", null);
+			error_box.setMessage("Could not display information.\n Please try again!");
+			error_box.show();
+		}
     }
 	//	END Method ID# 4.0
     

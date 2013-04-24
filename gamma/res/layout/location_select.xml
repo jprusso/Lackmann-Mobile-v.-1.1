@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
-        android:src="@drawable/lackmann_splash1"
+        android:src="@drawable/lackmann_logo"
         android:layout_centerHorizontal="true" />
     
     <Button
@@ -31,6 +31,7 @@
         android:layout_marginTop="40dp"
         android:clickable="true"
         android:onClick="goWardHaffey"
+        android:textSize="17dp"
         android:text="Ward/Haffey Hall" />
 
     <Button
@@ -42,6 +43,7 @@
         android:layout_below="@+id/wardhaffey"
         android:layout_marginTop="16dp"
         android:clickable="true"
+        android:textSize="17dp"
         android:text="Murphy Hall" />
 
     <Button
@@ -53,7 +55,8 @@
         android:layout_below="@+id/murphy"
         android:layout_marginTop="21dp"
         android:clickable="true"
-        android:text="Cyber Cafe" />
+        android:textSize="17dp"
+        android:text="Cyber Cafe&apos;" />
 
     <Button
         android:id="@+id/cardinal"
@@ -62,9 +65,10 @@
         android:layout_alignLeft="@+id/cyber"
         android:layout_alignRight="@+id/cyber"
         android:layout_below="@+id/cyber"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="17dp"
         android:clickable="true"
-        android:text="Cardinal Cafe" />
+        android:textSize="17dp"
+        android:text="Cardinal Cafe&apos;" />
 
     <Button
         android:id="@+id/fishbowl"
@@ -73,9 +77,10 @@
         android:layout_below="@+id/cardinal"
         android:layout_alignLeft="@+id/cardinal"
         android:layout_alignRight="@+id/cardinal"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="17dp"
         android:clickable="true"
-        android:text="Fish Bowl" />
+        android:textSize="17dp"
+        android:text="50&apos;s Fish Bowl" />
 
 </RelativeLayout> 
 

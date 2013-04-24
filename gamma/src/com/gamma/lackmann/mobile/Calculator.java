@@ -46,6 +46,8 @@ public class Calculator extends Activity
 	{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calculator);
+        
+        final AlertDialog.Builder error_box = new AlertDialog.Builder(ctx);
                 
         //Makes sure keyboard does not automatically open
         getWindow().setSoftInputMode(
@@ -60,9 +62,13 @@ public class Calculator extends Activity
 				try
 				{					
 					if(ms_int == 0)
+					{
 						ms_int = 0;
+					}
 					else
+					{
 						ms_int--;
+					}
 					
 					mealData = Integer.toString(ms_int);
 					meal_swipes.setText(mealData);
@@ -81,8 +87,6 @@ public class Calculator extends Activity
         		EditText f_dollars_used = ((EditText) findViewById(R.id.editText1));
         		Button f_dollars_total = ((Button) findViewById(R.id.flex_dollars));
         		
-        		final AlertDialog.Builder alert = new AlertDialog.Builder(ctx);
-
         		if(f_dollars_used.getText().toString().trim().equals(""))
         		{
         			flex_dollars.setText(String.valueOf(df.format(fd_total)));
@@ -99,15 +103,19 @@ public class Calculator extends Activity
         			}
         			else if(fd_total < fd_used)
         			{      		
-        				alert.setTitle("Not enough $$!");
-        				alert.setNeutralButton("OK!", null);
-        				alert.show();
+        				error_box.setTitle("Data Error");
+            			error_box.setIcon(R.drawable.app_icon);
+            			error_box.setMessage("Not enough $$!");
+            			error_box.setNeutralButton("OK!", null);
+            			error_box.show();
         			}
         			else
         			{				
-        				alert.setTitle("Invalid Input!");
-        				alert.setNeutralButton("OK!", null);
-        				alert.show();
+        				error_box.setTitle("Data Error");
+            			error_box.setIcon(R.drawable.app_icon);
+            			error_box.setMessage("Invalid Input!");
+            			error_box.setNeutralButton("OK!", null);
+            			error_box.show();
         			}      		
         	}}       	
         });
@@ -116,16 +124,21 @@ public class Calculator extends Activity
         {
 			public void onClick(View v) 
 			{
-				try{
+				try
+				{
 									
 					if(gp_int == 0)
+					{
 						gp_int = 0;
+					}
 					else
+					{
 						gp_int--;
+					}
 					
 					guestData = Integer.toString(gp_int);
 					guest_passes.setText(guestData);
-				 } 
+				} 
 				catch(NumberFormatException e)
 				{
 					guest_passes.setText("Error");
@@ -156,7 +169,11 @@ public class Calculator extends Activity
 				}
 				catch(ClassNotFoundException e)
 				{
-					e.printStackTrace();
+					error_box.setTitle("Application Error");
+					error_box.setIcon(R.drawable.app_icon);
+					error_box.setNeutralButton("OK!", null);
+					error_box.setMessage("Could not direct to desired page.\nPlease try again!");
+					error_box.show();
 				}
 			}
 		});
@@ -182,7 +199,11 @@ public class Calculator extends Activity
 				}
 				catch(ClassNotFoundException e)
 				{
-					e.printStackTrace();
+					error_box.setTitle("Application Error");
+					error_box.setIcon(R.drawable.app_icon);
+					error_box.setNeutralButton("OK!", null);
+					error_box.setMessage("Could not direct to desired page.\nPlease try again!");
+					error_box.show();
 				} 		
 			}
 		});
@@ -200,7 +221,11 @@ public class Calculator extends Activity
 				}
 				catch(ClassNotFoundException e)
 				{
-					e.printStackTrace();
+					error_box.setTitle("Application Error");
+					error_box.setIcon(R.drawable.app_icon);
+					error_box.setNeutralButton("OK!", null);
+					error_box.setMessage("Could not direct to desired page.\nPlease try again!");
+					error_box.show();
 				} 		
 			}
 		});

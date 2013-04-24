@@ -5,7 +5,7 @@
 		Created by: John Russo, Wade Kline, Matthew Staples, and Nathan Sunseri
 	
 		St. John Fisher College 
-		Spring 2012																	*/
+		Spring 2013																	*/
 
 package com.gamma.lackmann.mobile;
 
@@ -35,7 +35,7 @@ public class Edit_Screen extends Activity
 	public static String filename = "MySharedString";
 	
 	SharedPreferences someData;
-	
+		
 	protected void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
@@ -46,15 +46,14 @@ public class Edit_Screen extends Activity
         	    WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 		
 		setupVariables();
-		
+			
 		// BEGIN Method ID# 5.1
 		submit.setOnClickListener(new View.OnClickListener()
 		{
 
 			public void onClick(View v) 
 			{
-				
-				final AlertDialog.Builder alert = new AlertDialog.Builder(ctx);
+				AlertDialog.Builder error_box = new AlertDialog.Builder(ctx);
 				
 				String MealData = MealSwipes.getText().toString();
 				String DiningData = DiningDollars.getText().toString();
@@ -97,11 +96,19 @@ public class Edit_Screen extends Activity
 						}
 						catch(NullPointerException e)
 						{
-							e.printStackTrace();
+							error_box.setTitle("Data Retrieval Error");
+							error_box.setIcon(R.drawable.app_icon);
+							error_box.setNeutralButton("OK!", null);
+							error_box.setMessage("Could not find saved data.\n Please try again!");
+							error_box.show();
 						}
 						catch(ClassNotFoundException e)
 						{
-							e.printStackTrace();
+							error_box.setTitle("Application Error");
+							error_box.setIcon(R.drawable.app_icon);
+							error_box.setNeutralButton("OK!", null);
+							error_box.setMessage("Could not direct to desired page.\nPlease try again!");
+							error_box.show();
 						} 
 					
 						break; 

@@ -5,10 +5,9 @@
 		Created by: John Russo, Wade Kline, Matthew Staples, and Nathan Sunseri
 	
 		St. John Fisher College 
-		Spring 2012																	*/
+		Spring 2013																	*/
 
 package com.gamma.lackmann.mobile;
-
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -47,22 +46,24 @@ public class First_Time extends Activity
 		
 		setupVariables();	
 		
+		final AlertDialog.Builder error_box = new AlertDialog.Builder(ctx);
+		
 		// BEGIN Method ID# 5.0
 		submit.setOnClickListener(new View.OnClickListener()
 		{
 			public void onClick(View v) 
-			{
-				
-				final AlertDialog.Builder alert = new AlertDialog.Builder(ctx);
+			{		
 				MealData = MealSwipes.getText().toString();
 				DiningData = DiningDollars.getText().toString();
 				GuestData = GuestPasses.getText().toString();
 				
 				if(MealData.trim().equals("") || DiningData.trim().equals("") || GuestData.trim().equals("") )
         		{
-        			alert.setTitle("Must Enter a Number!");
-        			alert.setNeutralButton("OK!", null);
-        			alert.show();
+        			error_box.setTitle("Data Error");
+        			error_box.setIcon(R.drawable.app_icon);
+        			error_box.setMessage("Must Enter a Number!");
+        			error_box.setNeutralButton("OK!", null);
+        			error_box.show();
         		}
 				else
 				{
@@ -85,11 +86,19 @@ public class First_Time extends Activity
 							}
 							catch(NullPointerException e)
 							{
-								e.printStackTrace();
+								error_box.setTitle("Data Retrieval Error");
+								error_box.setIcon(R.drawable.app_icon);
+								error_box.setNeutralButton("OK!", null);
+								error_box.setMessage("Could not find saved data.\n Please try again!");
+								error_box.show();
 							}
 							catch(ClassNotFoundException e)
 							{
-								e.printStackTrace();
+								error_box.setTitle("Application Error");
+								error_box.setIcon(R.drawable.app_icon);
+								error_box.setNeutralButton("OK!", null);
+								error_box.setMessage("Could not direct to desired page.\nPlease try again!");
+								error_box.show();
 							} 
 					
 							break; 			

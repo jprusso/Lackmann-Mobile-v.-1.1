@@ -13,7 +13,6 @@ import java.io.File;
 import java.io.IOException;
 import jxl.Sheet;
 import jxl.Workbook;
-import jxl.read.biff.BiffException;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.Html;
@@ -47,6 +46,8 @@ public class Ward_Haffey_Menu extends Activity
           	
         setupVariables();
         
+        final AlertDialog.Builder error_box = new AlertDialog.Builder(ctx);
+        
 		try 
 		{	
 			/*	Checks to see if files exist then beings parsing	*/
@@ -58,9 +59,8 @@ public class Ward_Haffey_Menu extends Activity
 			}
 			else
 			{
-	        	AlertDialog.Builder error_box = new AlertDialog.Builder(ctx);
 				error_box.setTitle("Menu Retrieval Error");
-				error_box.setIcon(R.drawable.lackmann_twitterpic);
+				error_box.setIcon(R.drawable.app_icon);
 				error_box.setNeutralButton("OK!", null);
 				error_box.setMessage("Menus are unavailable at this time.");
 				error_box.show();
@@ -68,7 +68,11 @@ public class Ward_Haffey_Menu extends Activity
 		} 
 		catch (IOException e) 
 		{
-			e.printStackTrace();
+			error_box.setTitle("Menu Retrieval Error");
+			error_box.setIcon(R.drawable.app_icon);
+			error_box.setNeutralButton("OK!", null);
+			error_box.setMessage("Menus are unavailable at this time.");
+			error_box.show();
 		}
     }
     
@@ -91,6 +95,7 @@ public class Ward_Haffey_Menu extends Activity
 			meal_name[0] = ss + " " + qq + " " + tt;	
 			lwhsun.setText(Html.fromHtml("<font color='blue'><u>" 
 						+ ss + "<br>" + qq + "<br>" + tt + "</u></font>"));
+			
 			lwhsun.setOnClickListener(new View.OnClickListener() 
 			{
 				public void onClick(View v) 
@@ -141,6 +146,7 @@ public class Ward_Haffey_Menu extends Activity
 			meal_name[3] = ss + " " + qq + " " + tt;
 			lwhwed.setText(Html.fromHtml("<font color='blue'><u>" 
 								+ ss + "<br>" + qq + "<br>" + tt + "</u></font>"));
+			
 			lwhwed.setOnClickListener(new View.OnClickListener() 
 			{
 				public void onClick(View v) 
@@ -157,6 +163,7 @@ public class Ward_Haffey_Menu extends Activity
 			meal_name[4] = ss + " " + qq + " " + tt;
 			lwhthurs.setText(Html.fromHtml("<font color='blue'><u>" 
 								+ ss + "<br>" + qq + "<br>" + tt + "</u></font>"));
+			
 			lwhthurs.setOnClickListener(new View.OnClickListener() 
 			{
 				public void onClick(View v) 
@@ -173,6 +180,7 @@ public class Ward_Haffey_Menu extends Activity
 			meal_name[5] = ss + " " + qq + " " + tt;
 			lwhfri.setText(Html.fromHtml("<font color='blue'><u>" 
 								+ ss + "<br>" + qq + "<br>" + tt + "</u></font>"));
+			
 			lwhfri.setOnClickListener(new View.OnClickListener() 
 			{
 				public void onClick(View v) 
@@ -189,6 +197,7 @@ public class Ward_Haffey_Menu extends Activity
 			meal_name[6] = ss + " " + qq + " " + tt;
 			lwhsat.setText(Html.fromHtml("<font color='blue'><u>" 
 								+ ss + "<br>" + qq + "<br>" + tt + "</u></font>"));
+			
 			lwhsat.setOnClickListener(new View.OnClickListener() 
 			{
 				public void onClick(View v) 
@@ -199,9 +208,14 @@ public class Ward_Haffey_Menu extends Activity
 			
 			w.close();
 		} 
-    	catch (BiffException e) 
+    	catch (Exception e) 
     	{		
-			e.printStackTrace();
+    		final AlertDialog.Builder error_box = new AlertDialog.Builder(ctx);
+			error_box.setTitle("Menu Retrieval Error");
+			error_box.setIcon(R.drawable.app_icon);
+			error_box.setNeutralButton("OK!", null);
+			error_box.setMessage("Menus are unavailable at this time.");
+			error_box.show();
 		}   	
     }
     //	END Method ID# 3.2
@@ -223,6 +237,7 @@ public class Ward_Haffey_Menu extends Activity
 			meal_name[7] = ss + " " + qq + " " + tt;
 			dwhsun.setText(Html.fromHtml("<font color='blue'><u>" 
 								+ ss + "<br>" + qq + "<br>" + tt + "</u></font>"));
+			
 			dwhsun.setOnClickListener(new View.OnClickListener() 
 			{
 				public void onClick(View v) 
@@ -237,6 +252,7 @@ public class Ward_Haffey_Menu extends Activity
 			meal_name[8] = ss + " " + qq + " " + tt;
 			dwhmon.setText(Html.fromHtml("<font color='blue'><u>" 
 								+ ss + "<br>" + qq + "<br>" + tt + "</u></font>"));
+			
 			dwhmon.setOnClickListener(new View.OnClickListener() 
 			{
 				public void onClick(View v) 
@@ -251,6 +267,7 @@ public class Ward_Haffey_Menu extends Activity
 			meal_name[9] = ss + " " + qq + " " + tt;
 			dwhtues.setText(Html.fromHtml("<font color='blue'><u>" 
 								+ ss + "<br>" + qq + "<br>" + tt + "</u></font>"));
+			
 			dwhtues.setOnClickListener(new View.OnClickListener() 
 			{
 				public void onClick(View v) 
@@ -265,6 +282,7 @@ public class Ward_Haffey_Menu extends Activity
 			meal_name[10] = ss + " " + qq + " " + tt;
 			dwhwed.setText(Html.fromHtml("<font color='blue'><u>" 
 								+ ss + "<br>" + qq + "<br>" + tt + "</u></font>"));
+			
 			dwhwed.setOnClickListener(new View.OnClickListener() 
 			{
 				public void onClick(View v) 
@@ -279,6 +297,7 @@ public class Ward_Haffey_Menu extends Activity
 			meal_name[11] = ss + " " + qq + " " + tt;
 			dwhthurs.setText(Html.fromHtml("<font color='blue'><u>" 
 								+ ss + "<br>" + qq + "<br>" + tt + "</u></font>"));
+			
 			dwhthurs.setOnClickListener(new View.OnClickListener() 
 			{
 				public void onClick(View v) 
@@ -293,6 +312,7 @@ public class Ward_Haffey_Menu extends Activity
 			meal_name[12] = ss + " " + qq + " " + tt;
 			dwhfri.setText(Html.fromHtml("<font color='blue'><u>" 
 								+ ss + "<br>" + qq + "<br>" + tt + "</u></font>"));
+			
 			dwhfri.setOnClickListener(new View.OnClickListener() 
 			{
 				public void onClick(View v) 
@@ -307,6 +327,7 @@ public class Ward_Haffey_Menu extends Activity
 			meal_name[13] = ss + " " + qq + " " + tt;
 			dwhsat.setText(Html.fromHtml("<font color='blue'><u>" 
 								+ ss + "<br>" + qq + "<br>" + tt + "</u></font>"));
+			
 			dwhsat.setOnClickListener(new View.OnClickListener() 
 			{
 				public void onClick(View v) 
@@ -317,10 +338,15 @@ public class Ward_Haffey_Menu extends Activity
 			
 			w.close();
 		} 
-    	catch (BiffException e) 
-    	{			
-			e.printStackTrace();
-		}   		
+    	catch (Exception e) 
+    	{		
+    		final AlertDialog.Builder error_box = new AlertDialog.Builder(ctx);
+			error_box.setTitle("Menu Retrieval Error");
+			error_box.setIcon(R.drawable.app_icon);
+			error_box.setNeutralButton("OK!", null);
+			error_box.setMessage("Menus are unavailable at this time.");
+			error_box.show();
+		}   	
     }
     //	END Method ID# 3.3
     
@@ -347,7 +373,7 @@ public class Ward_Haffey_Menu extends Activity
 			
 			AlertDialog.Builder nutrition_box = new AlertDialog.Builder(ctx);
 			nutrition_box.setTitle(meal_name);
-			nutrition_box.setIcon(R.drawable.lackmann_twitterpic);
+			nutrition_box.setIcon(R.drawable.app_icon);
 			nutrition_box.setNeutralButton("OK!", null);
 			
 			if(ref_num.length() == 0)
@@ -361,7 +387,6 @@ public class Ward_Haffey_Menu extends Activity
 			
 				columns = nutrit_sheet.getColumns();
 				rows = nutrit_sheet.getRows();
-			
 				
 				while(counter < rows)
 				{
@@ -400,14 +425,15 @@ public class Ward_Haffey_Menu extends Activity
 				nutrition_box.show();
 			}
 		}
-		catch (BiffException e) 
+		catch (Exception e) 
 		{
-			e.printStackTrace();
+			final AlertDialog.Builder error_box = new AlertDialog.Builder(ctx);
+			error_box.setTitle("Application Error");
+			error_box.setIcon(R.drawable.app_icon);
+			error_box.setNeutralButton("OK!", null);
+			error_box.setMessage("Could not display information.\n Please try again!");
+			error_box.show();
 		} 
-		catch (IOException e) 
-		{
-			e.printStackTrace();
-		}   	
     }
     // END Method ID #4.0
     

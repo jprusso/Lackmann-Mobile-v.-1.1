@@ -3,22 +3,22 @@
 <RelativeLayout 
 	xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="#FFFFFF" >
 
     <ImageView
 		android:id="@+id/logo"
         android:layout_width="match_parent"
         android:layout_height="100dip"
         android:layout_alignParentTop="true"
-        android:background="@drawable/lackmann_splash1"
+        android:background="@drawable/lackmann_logo"
         android:scaleType="centerInside" />
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/promo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/logo"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/promo2" />
+        android:layout_centerHorizontal="true"  />
 
 </RelativeLayout>

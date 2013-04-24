@@ -1,11 +1,11 @@
 /*
 		Lackmann Mobile Android Application
-		Version 1.0
+		Version 1.1
 	
 		Created by: John Russo, Wade Kline, Matthew Staples, and Nathan Sunseri
 	
 		St. John Fisher College 
-		Fall 2012																	*/
+		Spring 2013																	*/
 
 package com.gamma.lackmann.mobile;
 
@@ -16,7 +16,6 @@ import java.io.OutputStream;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -25,7 +24,6 @@ import android.content.res.AssetManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -45,37 +43,38 @@ public class Location_Select extends Activity
         setContentView(R.layout.location_select);
         
         setupVariables();
+        
         CopyReadAssets();
         
 		Calendar c = Calendar.getInstance();
-		Date last = new Date(menu.lastModified());
-		Date last2 = new Date(nutrition.lastModified());
+		Date menu_date = new Date(menu.lastModified());
+		Date nutrition_date= new Date(nutrition.lastModified());
 		SimpleDateFormat cal = new SimpleDateFormat("yyyy-MM-dd");
-		String s = cal.format(c.getTime());
+		String time = cal.format(c.getTime());
+		
+		final AlertDialog.Builder alert_box = new AlertDialog.Builder(ctx);
+		final AlertDialog.Builder error_box = new AlertDialog.Builder(ctx);
 		
 		/* Checks file creation dates to make sure data files are up-to-date */ 
 		
 		// BEGIN Method ID# 3.0 
-		if(s.equals(last.toString()) && s.equals(last2.toString()) )
+		if(time.equals(menu_date.toString()) && time.equals(nutrition_date.toString()) )
 		{	
-			AlertDialog.Builder nutrition_box = new AlertDialog.Builder(ctx);
-			nutrition_box.setTitle("Nutritional Information");
-			nutrition_box.setIcon(R.drawable.lackmann_twitterpic);
-			nutrition_box.setNeutralButton("OK!", null);
-			nutrition_box.setMessage("Click on menu items to display nutrition facts."
-										+ "\n\n" + "*** Nutritional information is provided by Lackmann" +
-					" and may not be accurate.");
-			nutrition_box.show();
+			alert_box.setTitle("Nutritional Information");
+			alert_box.setIcon(R.drawable.app_icon);
+			alert_box.setNeutralButton("OK!", null);
+			alert_box.setMessage("Click on menu items to display nutrition facts."
+										+ "\n\n" + "*** Nutritional information \nis an estimate");
+			alert_box.show();
 		}
 		else
 		{
-			AlertDialog.Builder nutrition_box = new AlertDialog.Builder(ctx);
-			nutrition_box.setTitle("Nutritional Information");
-			nutrition_box.setIcon(R.drawable.lackmann_twitterpic);
-			nutrition_box.setNeutralButton("OK!", null);
-			nutrition_box.setMessage("Data files appear out-of-date"
+			alert_box.setTitle("Nutritional Information");
+			alert_box.setIcon(R.drawable.app_icon);
+			alert_box.setNeutralButton("OK!", null);
+			alert_box.setMessage("Data files appear out-of-date"
 									+ "\n\n" + "*** Information may not be accurate.");
-			nutrition_box.show();
+			alert_box.show();
 		}
         // END Method ID# 3.0 
 		
@@ -91,7 +90,11 @@ public class Location_Select extends Activity
         		}
         		catch(ClassNotFoundException e)
         		{
-        			e.printStackTrace();
+					error_box.setTitle("Application Error");
+					error_box.setIcon(R.drawable.app_icon);
+					error_box.setNeutralButton("OK!", null);
+					error_box.setMessage("Could not direct to desired page.\nPlease try again!");
+					error_box.show();
         		} 
         	}
         }); 
@@ -108,7 +111,11 @@ public class Location_Select extends Activity
         		}
         		catch(ClassNotFoundException e)
         		{
-        			e.printStackTrace();
+					error_box.setTitle("Application Error");
+					error_box.setIcon(R.drawable.app_icon);
+					error_box.setNeutralButton("OK!", null);
+					error_box.setMessage("Could not direct to desired page.\nPlease try again!");
+					error_box.show();
         		} 
         	}
         });
@@ -125,7 +132,11 @@ public class Location_Select extends Activity
         		}
         		catch(ClassNotFoundException e)
         		{
-        			e.printStackTrace();
+					error_box.setTitle("Application Error");
+					error_box.setIcon(R.drawable.app_icon);
+					error_box.setNeutralButton("OK!", null);
+					error_box.setMessage("Could not direct to desired page.\nPlease try again!");
+					error_box.show();
         		} 
         	}
         });
@@ -142,7 +153,11 @@ public class Location_Select extends Activity
         		}
         		catch(ClassNotFoundException e)
         		{
-        			e.printStackTrace();
+					error_box.setTitle("Application Error");
+					error_box.setIcon(R.drawable.app_icon);
+					error_box.setNeutralButton("OK!", null);
+					error_box.setMessage("Could not direct to desired page.\nPlease try again!");
+					error_box.show();
         		} 
         	}
         });
@@ -151,10 +166,21 @@ public class Location_Select extends Activity
         {
         	public void onClick(View v) 
         	{
-        		Intent ourIntent = new Intent(Intent.ACTION_VIEW);
-        		ourIntent.setDataAndType(Uri.parse("file://" + getFilesDir() + "/fishbowl.pdf"),
-    	                "application/pdf");;
-	            startActivity(ourIntent); 	
+        		try
+        		{
+        			Intent ourIntent = new Intent(Intent.ACTION_VIEW);
+        			ourIntent.setDataAndType(Uri.parse("file://" + getFilesDir() + "/fishbowl.pdf"),
+        					"application/pdf");;
+        			startActivity(ourIntent);
+        		}
+        		catch(Exception e)
+        		{
+					error_box.setTitle("Application Error");
+					error_box.setIcon(R.drawable.app_icon);
+					error_box.setNeutralButton("OK!", null);
+					error_box.setMessage("Could not direct to desired page.\nPlease try again!");
+					error_box.show();
+        		}
 			}
         });
     }
@@ -185,7 +211,12 @@ public class Location_Select extends Activity
         } 
         catch (Exception e)
         {
-        	Log.e("tag", e.getMessage());
+        	final AlertDialog.Builder error_box = new AlertDialog.Builder(ctx);
+			error_box.setTitle("Menu Retrieval Error");
+			error_box.setIcon(R.drawable.app_icon);
+			error_box.setNeutralButton("OK!", null);
+			error_box.setMessage("Could not open Fish Bowl menu.\nPlease try again!");
+			error_box.show();
         }
     }
     // END Method ID# 3.1.0

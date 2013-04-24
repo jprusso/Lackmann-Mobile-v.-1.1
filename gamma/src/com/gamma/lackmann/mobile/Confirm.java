@@ -5,13 +5,14 @@
 		Created by: John Russo, Wade Kline, Matthew Staples, and Nathan Sunseri
 	
 		St. John Fisher College 
-		Spring 2012																	*/
+		Spring 2013																	*/
 
 package com.gamma.lackmann.mobile;
 
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -38,8 +39,6 @@ public class Confirm extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.confirm);
 		
-		someData = getSharedPreferences(filename, 0);		
-        
         setupVariables();
                		        
 		yes.setOnClickListener(new View.OnClickListener() 
@@ -73,13 +72,16 @@ public class Confirm extends Activity
 						Class ourClass = Class.forName("com.gamma.lackmann.mobile.Calculator");
 						Intent ourIntent = new Intent(ctx, ourClass);
 						startActivity(ourIntent);
-					}
-					
-					
+					}	
 				}
 				catch(ClassNotFoundException e)
 				{
-					e.printStackTrace();
+					AlertDialog.Builder error_box = new AlertDialog.Builder(ctx);
+					error_box.setTitle("Application Error");
+					error_box.setIcon(R.drawable.app_icon);
+					error_box.setNeutralButton("OK!", null);
+					error_box.setMessage("Could not direct to desired page.\n Please try again!");
+					error_box.show();
 				} 					
 			}
 		});
@@ -98,13 +100,13 @@ public class Confirm extends Activity
 					}
 					else if(direction.equals("firsttime"))
 					{
-						Class ourClass = Class.forName("com.gamma.lackmann.mobile.firsttime");
+						Class ourClass = Class.forName("com.gamma.lackmann.mobile.First_Time");
 						Intent ourIntent = new Intent(ctx, ourClass);
 						startActivity(ourIntent);
 					}
 					else if(direction.equals("editscreen"))
 					{
-						Class ourClass = Class.forName("com.gamma.lackmann.mobile.editscreen");
+						Class ourClass = Class.forName("com.gamma.lackmann.mobile.Edit_Screen");
 						Intent ourIntent = new Intent(ctx, ourClass);
 						ourIntent.putExtra("mealswipes", mealData);
 						ourIntent.putExtra("flexdollars", diningData);
@@ -114,7 +116,12 @@ public class Confirm extends Activity
 				}
 				catch(ClassNotFoundException e)
 				{
-					e.printStackTrace();
+					AlertDialog.Builder error_box = new AlertDialog.Builder(ctx);
+					error_box.setTitle("Application Error");
+					error_box.setIcon(R.drawable.app_icon);
+					error_box.setNeutralButton("OK!", null);
+					error_box.setMessage("Could not direct to desired page.\nPlease try again!");
+					error_box.show();
 				} 					
 			}
 		});

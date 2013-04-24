@@ -3,28 +3,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF" >
-
+
     <ImageView
         android:id="@+id/logo"
         android:layout_width="match_parent"
         android:layout_height="100dip"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/lackmann_splash1"
+        android:background="@drawable/lackmann_logo"
         android:scaleType="centerInside" />
-   
+   
     <Button
         android:id="@+id/meal_options"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/logo"
+        android:layout_alignParentLeft="true"
         android:layout_alignRight="@+id/logo"
         android:layout_below="@+id/logo"
         android:layout_marginTop="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:padding="25dip"
-        android:text="Meal Plan Options" />
+        android:text="Meal Plan Options"
+        android:textSize="17dp" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/options_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/meal_options"
@@ -32,28 +36,31 @@
         android:layout_below="@+id/meal_options"
         android:text="**Information provided by SJFC&apos;s ResLife"
         android:textColor="#000000"
-        android:textSize="13sp" />
+        android:textStyle="bold"
+        android:textSize="12dp" />
 
     <Button
         android:id="@+id/meal_costs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignLeft="@+id/options_label"
         android:layout_alignRight="@+id/meal_options"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/options_label"
         android:layout_centerVertical="true"
         android:layout_marginTop="40dp"
         android:padding="25dip"
+        android:textSize="17dp"
         android:text="Meal Plan Costs" />
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/costs_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/meal_costs"
         android:layout_alignRight="@+id/meal_costs"
         android:layout_below="@+id/meal_costs"
         android:text="**Information provided by SJFC&apos;s Bursar Office"
+        android:textStyle="bold"
         android:textColor="#000000"
-        android:textSize="13sp" />
+        android:textSize="12dp" />
   
 </RelativeLayout>
