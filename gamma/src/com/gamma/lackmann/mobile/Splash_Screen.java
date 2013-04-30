@@ -248,12 +248,8 @@ public class Splash_Screen extends Activity
 			}
 			catch(Exception e)
 			{
-				final AlertDialog.Builder error_box = new AlertDialog.Builder(ctx);
-				error_box.setTitle("Promotional Error");
-				error_box.setIcon(R.drawable.app_icon);
-				error_box.setNeutralButton("OK!", null);
-				error_box.setMessage("Promotion is unavailable.\n");
-				error_box.show();
+				Intent intent = new Intent("com.gamma.lackmann.mobile.Main_Menu");	
+				startActivity(intent);
 			}
 	    }
 

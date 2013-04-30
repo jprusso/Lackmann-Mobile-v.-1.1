@@ -378,7 +378,7 @@ public class Ward_Haffey_Menu extends Activity
 			
 			if(ref_num.length() == 0)
 			{
-				nutrition_box.setMessage("Sorry nutrition information is not available");	 
+				nutrition_box.setMessage("Nutrition information unavailable at this time");	 
 				nutrition_box.show();
 			}
 			else
@@ -396,7 +396,7 @@ public class Ward_Haffey_Menu extends Activity
 					{
 						/* Checks to see if reference number matches and is valid
 						 * 	No reference number is greater than 8 characters. */
-						if(contents.equals(ss[i]) && contents.length() < 10)
+						if(contents.equals(ss[i]) && contents.length() < 9)
 						{
 							total_cal = total_cal + Double.parseDouble(nutrit_sheet.getCell(6,counter).getContents());
 							total_fat = total_fat + Double.parseDouble(nutrit_sheet.getCell(8,counter).getContents());
@@ -416,13 +416,21 @@ public class Ward_Haffey_Menu extends Activity
 					counter++;
 				}
 			
-				nutrition_box.setMessage("Serving Size:      1 menu item " + "\n"
-						+ "Total Calories:   " + total_cal + " calories\n"
-						+ "Total Fat:            " +  total_fat + " grams\n" 
-						+ "Total Carbs:       " + total_carbs + " grams\n"
-						+ "Total Protein:     " + total_protein + " grams");
+				if(total_cal == 0 && total_fat == 0 && total_carbs == 0 && total_protein == 0)
+				{
+					nutrition_box.setMessage("Nutrition information unavailable at this time");	 
+					nutrition_box.show();
+				}
+				else
+				{
+					nutrition_box.setMessage("Serving Size:      1 menu item " + "\n"
+							+ "Total Calories:   " + total_cal + " calories\n"
+							+ "Total Fat:            " +  total_fat + " grams\n" 
+							+ "Total Carbs:       " + total_carbs + " grams\n"
+							+ "Total Protein:     " + total_protein + " grams");
 			 	 
-				nutrition_box.show();
+					nutrition_box.show();
+				}
 			}
 		}
 		catch (Exception e) 
