@@ -2,7 +2,7 @@
 		Lackmann Mobile Android Application
 		Version 1.1
 	
-		Created by: John Russo, Wade Kline, Matthew Staples, and Nathan Sunseri
+		Created by: John Russo, Wade Kline, Matthew Staples, Robert Jones, and Nathan Sunseri
 	
 		St. John Fisher College 
 		Spring 2013																	*/
